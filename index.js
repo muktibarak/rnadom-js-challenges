@@ -140,5 +140,42 @@ const findMissingNumber = arr => {
   }
   return expectedSum - sum;
 };
-console.log(findMissingNumber([4, 2, 6, 5, 1, 3, 8, 9]));
-console.log(findMissingNumber([4, 6, 7, 5, 1, 3, 8, 9]));
+console.log("should produce 7: ", findMissingNumber([4, 2, 6, 5, 1, 3, 8, 9]));
+console.log("should produce 7: ", findMissingNumber([4, 6, 7, 5, 1, 3, 8, 9]));
+
+/**
+ * Remove duplicates of array and return arry with only unique elements.
+ */
+
+// function purifyArray(arr) {
+//   let pure = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== arr[i++]) {
+//       pure.push(arr[i]);
+//     }
+//   }
+//   return pure;
+// }
+
+// console.log(purifyArray([1, 2, 2, 3, 5, 5, 4, 7]));
+// console.log(
+//   purifyArray([1, 2, 2, 3, 5, 5, 4, 7, 1, 1, 3, 4, 4, 4, 4, 5, 6, 7])
+// );
+// console.log(
+//   purifyArray(["mukti", "mctea", "mctea", "mcchai", "mctea", "mukti"])
+// );
+// console.log(
+//   purifyArray([
+//     "Sally",
+//     "Sally",
+//     "Sally",
+//     "Tally",
+//     "Mally",
+//     "Pally",
+//     "Pally",
+//     "Mally",
+//     "Sally",
+//     "Tally",
+//     "Pally"
+//   ])
+// );
