@@ -100,3 +100,45 @@ const sumOfArryAdditionOne = arr => {
 console.log(sumOfArryAdditionOne([1, 2]));
 console.log(sumOfArryAdditionOne([1, 2, 3]));
 console.log(sumOfArryAdditionOne([1042, 1414, 2585258]));
+
+/**
+ * give a string and reverse each word in a sentence.
+ */
+
+const reverseStr = str => {
+  let newStr = str
+    .split("")
+    .reverse()
+    .join("");
+  return newStr;
+};
+console.log(reverseStr("I am a boy"));
+console.log(reverseStr("She is a girl"));
+
+// let arr = ["a", "b", "c"];
+// let dup = Array.from(arr);
+// console.log(dup);
+// let obj = { name: "somebody", age: 23 };
+// let dupObj = { ...obj };
+// let dupObj2 = Object.assign({}, obj);
+// console.log(dupObj);
+// console.log(dupObj2);
+
+/**
+ * Find a missing number in an unsorted array of n consecutive numbers,
+ * where the upperbound and lowerbounds are defined.
+ */
+
+const findMissingNumber = arr => {
+  // assuming there is one missing number
+  let n = arr.length + 1;
+  let sum = 0;
+  let expectedSum = (n * (n + 1)) / 2;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return expectedSum - sum;
+};
+console.log(findMissingNumber([4, 2, 6, 5, 1, 3, 8, 9]));
+console.log(findMissingNumber([4, 6, 7, 5, 1, 3, 8, 9]));
