@@ -181,6 +181,38 @@ console.log(
     "Pally"
   ])
 );
+
+/**
+ * Duplicate eliments array: same thing we can implement using clone
+ */
+
+function uniqueArrayWithClone(arr) {
+  return Array.from(new Set(arr));
+}
+
+console.log(uniqueArrayWithClone([1, 2, 2, 3, 5, 5, 4, 7]));
+console.log(
+  uniqueArrayWithClone([1, 2, 2, 3, 5, 5, 4, 7, 1, 1, 3, 4, 4, 4, 4, 5, 6, 7])
+);
+console.log(
+  uniqueArrayWithClone(["mukti", "mctea", "mctea", "mcchai", "mctea", "mukti"])
+);
+console.log(
+  uniqueArrayWithClone([
+    "Sally",
+    "Sally",
+    "Sally",
+    "Tally",
+    "Mally",
+    "Pally",
+    "Pally",
+    "Mally",
+    "Sally",
+    "Tally",
+    "Pally"
+  ])
+);
+
 /**
  * What would be the outcome?
  */
