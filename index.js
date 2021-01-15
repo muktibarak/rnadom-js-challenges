@@ -147,35 +147,69 @@ console.log("should produce 7: ", findMissingNumber([4, 6, 7, 5, 1, 3, 8, 9]));
  * Remove duplicates of array and return arry with only unique elements.
  */
 
-// function purifyArray(arr) {
-//   let pure = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] !== arr[i++]) {
-//       pure.push(arr[i]);
-//     }
-//   }
-//   return pure;
-// }
+function uniqueArray(arr) {
+  let hashmap = {};
+  let unique = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!hashmap.hasOwnProperty(arr[i])) {
+      hashmap[arr[i]] = 1;
+      unique.push(arr[i]);
+    }
+  }
+  return unique;
+}
 
-// console.log(purifyArray([1, 2, 2, 3, 5, 5, 4, 7]));
-// console.log(
-//   purifyArray([1, 2, 2, 3, 5, 5, 4, 7, 1, 1, 3, 4, 4, 4, 4, 5, 6, 7])
-// );
-// console.log(
-//   purifyArray(["mukti", "mctea", "mctea", "mcchai", "mctea", "mukti"])
-// );
-// console.log(
-//   purifyArray([
-//     "Sally",
-//     "Sally",
-//     "Sally",
-//     "Tally",
-//     "Mally",
-//     "Pally",
-//     "Pally",
-//     "Mally",
-//     "Sally",
-//     "Tally",
-//     "Pally"
-//   ])
-// );
+console.log(uniqueArray([1, 2, 2, 3, 5, 5, 4, 7]));
+console.log(
+  uniqueArray([1, 2, 2, 3, 5, 5, 4, 7, 1, 1, 3, 4, 4, 4, 4, 5, 6, 7])
+);
+console.log(
+  uniqueArray(["mukti", "mctea", "mctea", "mcchai", "mctea", "mukti"])
+);
+console.log(
+  uniqueArray([
+    "Sally",
+    "Sally",
+    "Sally",
+    "Tally",
+    "Mally",
+    "Pally",
+    "Pally",
+    "Mally",
+    "Sally",
+    "Tally",
+    "Pally"
+  ])
+);
+/**
+ * What would be the outcome?
+ */
+function scheduleWork() {
+  Promise.resolve().then(() => console.log("m1"));
+  Promise.resolve().then(() => console.log("m2"));
+  setTimeout(() => console.log("t1"), 0);
+  setTimeout(() => {
+    Promise.resolve().then(() => console.log("m3"));
+    Promise.resolve().then(() => console.log("m4"));
+    Promise.resolve().then(() => console.log("m5"));
+    Promise.resolve().then(() =>
+      Promise.resolve().then(() => console.log("m6"))
+    );
+  }, 0);
+  setTimeout(() => console.log("t2"), 0);
+  setTimeout(() => console.log("t3"), 0);
+}
+scheduleWork();
+/**
+ * Outcome: Precedence of microtasks over tasks in event loop
+ * m1
+ * m2
+ * t1
+ * m3
+ * m4
+ * m5
+ * m6
+ * t2
+ * t3
+ *
+ */
